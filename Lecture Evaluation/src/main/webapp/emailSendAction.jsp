@@ -39,7 +39,7 @@
 		return;			
 	}
 	
-	String host = "http://localhost:8082/Lecture_Evaluation/";
+	String host = "http://localhost:8083/Lecture_Evaluation/";
 	String from = "sheery9241@gmail.com";
 	String to = userDAO.getUserEmail(userID);
 	String subject = "강의평가를 위한 이메일 인증 메일입니다.";
@@ -104,14 +104,27 @@
 				<li class="nav-item active"><a class="nav-link" href="index.jsp">메인</a></li>
 				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown"> 회원관리 </a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
-						<a class="dropdown-item" href="userLogin.jsp">로그인</a> 
-						<a class="dropdown-item" href="userJoin.jsp">회원가입</a> 
+<%
+	if (userID.equals("")) {
+		
+	
+%>					
+			
+					
+						<a class="dropdown-item" href="userLogin.jsp">로그인</a>
+						<a class="dropdown-item" href="userJoin.jsp">회원가입</a>
+<%
+	} else {
+%>						 
 						<a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
+<%
+	}
+%>											
 					</div>
 				</li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search" placeholder="내용을 입력하세요." aria-label="Search">
+			<form action="./index.jsp" method="get" class="form-inline my-2 my-lg-0">
+				<input type="text" name="search" class="form-control mr-sm-2" type="search" placeholder="내용을 입력하세요." aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
 			</form>
 		</div>

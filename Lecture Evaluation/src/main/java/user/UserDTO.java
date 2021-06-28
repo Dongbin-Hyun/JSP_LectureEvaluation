@@ -51,7 +51,5 @@ public class UserDTO {
 		this.userEmailHash = userEmailHash;
 		this.userEmailChecked = userEmailChecked;
 	}
-	
-	
 
 }
